@@ -1,7 +1,4 @@
-[Link to my GitHub](https://github.com/Christion01/se_project_aroundtheus.git)
-
-https://github.com/Christion01/se_project_aroundtheus/edit/main/README.md
-https://github.com/Christion01/se_project_aroundtheus
+https://christion01.github.io/se_project_aroundtheus/
 
 # Project 3: Around The U.S.
 
@@ -13,4 +10,3 @@ https://github.com/Christion01/se_project_aroundtheus
 
 **Images**
 
-Link to my GitHub Page --> https://github.com/Christion01/se_project_aroundtheus.git
