@@ -1,4 +1,4 @@
-https://github.com/Christion01/se_project_aroundtheus.git
+[Link to my GitHub](https://github.com/Christion01/se_project_aroundtheus.git)
 
 # Project 3: Around The U.S.
 
