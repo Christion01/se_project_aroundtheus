@@ -2,14 +2,13 @@
   display: flex;
   box-sizing: border-box;
   position: relative;
-  overflow: hidden;
   max-width: 880px;
   justify-content: flex-start;
 }
 
 .footer__copyright {
   color: #545454;
-  margin: 0 0 0 0;
+  margin: 0;
   justify-content: flex-start;
   font-family: "Inter", Arial, sans-serif;
   font-size: 18px;

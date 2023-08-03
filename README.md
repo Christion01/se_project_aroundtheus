@@ -4,9 +4,9 @@ https://christion01.github.io/se_project_aroundtheus/
 
 ### Overview
 
+Explorores account page featuring 9 pictures with captions and a profile completed with a profile picture, account name and description, edit and add buttons.
 **Intro**
 
 **Figma**
 
 **Images**
-

@@ -1,17 +1,3 @@
-.cards {
-  margin-top: 40px;
-}
-
-.cards__list {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 .card__image {
   width: 282px;
   height: 282px;
@@ -25,13 +11,18 @@
   padding-right: 20px;
   align-items: center;
   justify-content: space-between;
-  height: 79px;
 }
 
 .card__title {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin-top: 27.5px;
+  margin-bottom: 27.5px;
+  font-family: "Inter", "Arial", serif;
+  font-size: 24px;
+  font-weight: 900px;
+  line-height: 29.05px;
 }
 
 .card__like-button {

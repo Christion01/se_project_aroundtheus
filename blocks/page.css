@@ -15,3 +15,15 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
+@media screen and (max-width: 580px) {
+  .page__section {
+    max-width: 282px;
+  }
+}
+
+@media screen and (max-width: 879px) {
+  .page__section {
+    max-width: 581px;
+  }
+}
