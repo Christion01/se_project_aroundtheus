@@ -1,0 +1,57 @@
+@import url(/vendor/normalize.css);
+@import url(/vendor/fonts.css);
+@import url(/blocks/page.css);
+@import url(/blocks/header.css);
+@import url(/blocks/profile.css);
+@import url(/blocks/card.css);
+
+@media screen and (max-width: 580px) {
+  .profile {
+    flex-direction: column;
+    max-width: 282px;
+  }
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .profile__description {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+  }
+  .profile__add-button {
+    margin: 0;
+    width: 100%;
+  }
+  .profile__title {
+    font-size: 22px;
+  }
+  .profile__image {
+    height: 120px;
+    width: 120px;
+  }
+  .profile__edit-button {
+    height: 18px;
+    width: 18px;
+  }
+  .page__section {
+    max-width: 282px;
+  }
+}
+@media screen and (max-width: 879px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile__info {
+    text-align: center;
+  }
+  .profile__add-button {
+    margin: 0;
+    max-width: 282px;
+  }
+  .page__section {
+    max-width: 581px;
+  }
+}
