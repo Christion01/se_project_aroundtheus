@@ -1,12 +1,9 @@
-https://christion01.github.io/se_project_aroundtheus/
+Project 3: Around The U.S.
 
-# Project 3: Around The U.S.
-
-### Overview
+Overview:
 
 Explorores account page featuring 9 pictures with captions and a profile completed with a profile picture, account name and description, edit and add buttons.
-**Intro**
 
-**Figma**
+Link to my GitHub Page:
 
-**Images**
+https://christion01.github.io/se_project_aroundtheus/
