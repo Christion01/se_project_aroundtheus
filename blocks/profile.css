@@ -46,11 +46,11 @@
   line-height: 48px;
   font-weight: 500;
   grid-area: title;
-  margin: 0;
   padding: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  padding-left: 5vw;
 }
 
 .profile__description {
@@ -84,6 +84,9 @@
     margin: 0;
     max-width: 282px;
   }
+  .profile__image {
+    margin-right: 0;
+  }
 }
 
 @media screen and (max-width: 580px) {
@@ -112,8 +115,6 @@
     margin: 26.25px 0 5px 0;
   }
   .profile__image {
-    height: 120px;
-    width: 120px;
     margin-right: 0;
   }
   .profile__edit-button {

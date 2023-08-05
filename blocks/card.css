@@ -21,9 +21,9 @@
   margin-bottom: 27.5px;
   font-family: "Inter", "Arial", serif;
   font-size: 24px;
-  font-weight: 900px;
+  font-weight: 900;
   line-height: 29.05px;
-  width: calc(100% - 5vw);
+  width: calc(100% - 3vw);
 }
 
 .card__like-button {
