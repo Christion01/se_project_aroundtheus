@@ -21,6 +21,7 @@
   grid-area: button;
   border: 1px solid #ffffff;
   cursor: pointer;
+  margin-top: 1vh;
 }
 
 .profile__edit-button:hover {
@@ -32,6 +33,7 @@
   height: 50px;
   width: 150px;
   margin-left: auto;
+  margin-bottom: 4.5vh;
   border: 2px solid #ffffff;
   border-radius: 2px;
   cursor: pointer;
@@ -47,10 +49,10 @@
   font-weight: 500;
   grid-area: title;
   padding: 0;
+  margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  padding-left: 5vw;
 }
 
 .profile__description {
@@ -110,6 +112,7 @@
     width: 100%;
   }
   .profile__title {
+    padding-left: 5vw;
     font-size: 22px;
     line-height: 26.63px;
     margin: 26.25px 0 5px 0;

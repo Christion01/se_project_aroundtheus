@@ -1,12 +1,13 @@
 .header {
+  padding-top: 45px;
   height: 74px;
   border-bottom: 1px solid #545454b3;
 }
 
 .header__image {
-  padding-top: 45px;
   width: 173px;
   height: 33px;
+  margin-bottom: 41px;
 }
 @media screen and (max-width: 580px) {
   .header {
