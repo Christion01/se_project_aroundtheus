@@ -1,6 +1,5 @@
 .header {
   padding-top: 45px;
-  height: 74px;
   border-bottom: 1px solid #545454b3;
 }
 
@@ -11,7 +10,6 @@
 }
 @media screen and (max-width: 580px) {
   .header {
-    height: 56px;
     padding-top: 28px;
   }
 

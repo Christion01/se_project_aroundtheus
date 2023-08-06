@@ -79,6 +79,9 @@
   .profile {
     flex-direction: column;
   }
+  .profile__title {
+    padding-left: 5vw;
+  }
   .profile__info {
     text-align: center;
   }
