@@ -19,19 +19,19 @@
   padding-top: 70px;
   padding-bottom: 50px;
 }
-
+@media screen and (max-width: 878px) {
+  .footer {
+    max-width: 581px;
+  }
+}
 @media screen and (max-width: 580px) {
   .footer__copyright {
     padding-top: 48px;
-    margin-left: 19px;
     padding-bottom: 36px;
     line-height: 17px;
     font-size: 14px;
   }
-}
-
-@media screen and (max-width: 878px) {
-  .page__section {
-    max-width: 581px;
+  .footer {
+    max-width: 282px;
   }
 }
