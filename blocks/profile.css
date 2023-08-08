@@ -12,6 +12,7 @@
   grid-template-columns: minmax(auto, 373px) auto;
   grid-gap: 9px 17px;
   align-items: center;
+  padding-top: 22px;
 }
 
 .profile__edit-button {
@@ -33,10 +34,11 @@
   height: 50px;
   width: 150px;
   margin-left: auto;
-  margin-bottom: 4.5vh;
+  /*margin-bottom: 4.5vh; */
   border: 2px solid #ffffff;
   border-radius: 2px;
   cursor: pointer;
+  padding-top: 55px;
 }
 
 .profile__add-button:hover {
