@@ -1,6 +1,3 @@
-/* const(cannot change, constant) */
-/* let() */
-
 const initialCards = [
   {
     title: "Yosemite Valley",
