@@ -8,8 +8,7 @@
   padding-right: 19px;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: flex;
-  /* display: none; */
+  display: none;
   color: black;
 }
 
@@ -85,6 +84,10 @@
 
 .modal__button:hover {
   opacity: 0.6;
+}
+
+.modal_opened {
+  display: flex;
 }
 
 @media screen and (max-width: 580px) {

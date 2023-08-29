@@ -26,7 +26,7 @@
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
               aria-label="edit button"
-              class="profile__edit-button"
+              class="profile__edit-button js-profile__edit-btn"
               type="button"
             ></button>
             <p class="profile__description">Explorer</p>
@@ -136,9 +136,9 @@
         <p class="footer__copyright">© 2023 Christion Beddoes</p>
       </footer>
     </div>
-    <div class="modal">
+    <div class="modal modal_opened" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close"></button>
+        <button class="modal__close" id="profile-modal-close-btn"></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form">
           <input class="modal__input" type="text" name="title" />
