@@ -1,6 +1,7 @@
 .card__image {
   width: 282px;
   height: 282px;
+  cursor: pointer;
 }
 
 .card__description {
@@ -31,10 +32,31 @@
   width: 21px;
   height: 18px;
   border: none;
+  cursor: pointer;
+}
+
+.card__like-button_active {
+  background-image: url(../images/LikeActive.svg);
 }
 
 .card__like-button:hover {
   opacity: 50%;
+}
+
+.card__delete-button {
+  background: transparent url(../images/Trash.svg);
+  position: relative;
+  width: 18px;
+  height: 19.3px;
+  border: none;
+  bottom: 300px;
+  z-index: 5;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.card__delete-button:hover {
+  opacity: 0.6;
 }
 
 .card {

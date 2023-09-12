@@ -65,7 +65,7 @@
             id="profile-description-input"
             type="text"
             name="description"
-            placeholder="Name"
+            placeholder="Description"
           />
           <button class="modal__button">Save</button>
         </form>
@@ -95,6 +95,13 @@
         </form>
       </div>
     </div>
+    <!-- IMAGE PREVIEW MODAL-->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__container_preview">
+        <button class="modal__close" id="preview-close-btn"></button>
+        <img src="#" class="modal__preview_image" id="image-preview">
+        <p class="modal__preview_name" id="modal__preview_name"></p>
+        </div>
     <template id="card-template">
       <li class="card">
         <img src="" class="card__image" alt="" />
@@ -104,6 +111,11 @@
             class="card__like-button"
             type="button"
             aria-label="like button"
+          ></button>
+          <button
+            class="card__delete-button"
+            type="button"
+            aria-label="delete button"
           ></button>
         </div>
       </li>

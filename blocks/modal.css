@@ -2,17 +2,22 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
+  right: 0;
   padding: 0 19px;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: none;
+  display: flex;
   color: black;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
-.modal__opened {
-  display: flex;
+.modal_opened {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 .modal__container {
@@ -23,6 +28,28 @@
   border-radius: 10px;
   max-width: 430px;
   max-height: 330px;
+}
+
+.modal__container_preview {
+  position: relative;
+  margin: auto;
+}
+
+.modal__preview_image {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__preview_name {
+  width: 291px;
+  height: 12px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
 }
 
 .modal__close {
