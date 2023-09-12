@@ -60,9 +60,17 @@ const cardUrlInput = cardAddForm.querySelector("#card-image-url-input");
 //FUNCTIONS
 
 function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
-  cardAddModal.classList.remove("modal_opened");
-  previewImageModal.classList.remove("modal_opened");
+  closePopup(profileEditModal);
+  closePopup(cardAddModal);
+  closePopup(previewImageModal);
+}
+
+function openPopup(popup) {
+  popup.classList.add("modal_opened");
+}
+
+function closePopup(popup) {
+  popup.classList.remove("modal_opened");
 }
 
 function getCardElement(cardData) {
@@ -85,7 +93,7 @@ function getCardElement(cardData) {
     previewImage.src = cardImageEL.src;
     previewName.textContent = cardData.name;
     previewImage.alt = cardData.name;
-    previewImageModal.classList.add("modal_opened");
+    openPopup(previewImageModal);
   });
 
   //like button
@@ -101,7 +109,7 @@ function getCardElement(cardData) {
 }
 
 function renderCard(cardData) {
-  cardElement = getCardElement(cardData);
+  const cardElement = getCardElement(cardData);
   cardsListEL.prepend(cardElement);
 }
 
@@ -109,17 +117,19 @@ function renderCard(cardData) {
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
-
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
+  closePopup(profileEditModal);
 }
 function handleAddCardSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardsListEL);
-  closePopup();
+  e.target.reset();
+  closePopup(cardAddModal);
+
+  //document.cardAddForm(cardTitleInput.value).reset;
 }
 
 // EVENT LISTENERS
@@ -127,22 +137,24 @@ function handleAddCardSubmit(e) {
 profileEditBtn.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openPopup(profileEditModal);
 });
 //ADD NEW CARD BUTTON
 addNewCardBtn.addEventListener("click", () => {
-  cardAddModal.classList.add("modal_opened");
+  openPopup(cardAddModal);
 });
 //PREVIEW IMAGE MODAL
 
 const editModalCloseBtn = document.querySelector("#edit-modal-close-btn");
-editModalCloseBtn.addEventListener("click", closePopup);
+editModalCloseBtn.addEventListener("click", () => closePopup(profileEditModal));
 
 const addModalCloseBtn = document.querySelector("#add-modal-close-btn");
-addModalCloseBtn.addEventListener("click", closePopup);
+addModalCloseBtn.addEventListener("click", () => closePopup(cardAddModal));
 
 const previewModalCloseBtn = document.querySelector("#preview-close-btn");
-previewModalCloseBtn.addEventListener("click", closePopup);
+previewModalCloseBtn.addEventListener("click", () =>
+  closePopup(previewImageModal)
+);
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 cardAddForm.addEventListener("submit", handleAddCardSubmit);

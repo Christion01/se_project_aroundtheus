@@ -35,12 +35,12 @@
   margin: auto;
 }
 
-.modal__preview_image {
+.modal__preview-image {
   max-width: 75vw;
   max-height: 75vh;
 }
 
-.modal__preview_name {
+.modal__preview-name {
   width: 291px;
   height: 12px;
   font-family: Inter;
