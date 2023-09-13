@@ -59,12 +59,6 @@ const cardUrlInput = cardAddForm.querySelector("#card-image-url-input");
 
 //FUNCTIONS
 
-function closePopup() {
-  closePopup(profileEditModal);
-  closePopup(cardAddModal);
-  closePopup(previewImageModal);
-}
-
 function openPopup(popup) {
   popup.classList.add("modal_opened");
 }
@@ -72,6 +66,10 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove("modal_opened");
 }
+
+closePopup(profileEditModal);
+closePopup(cardAddModal);
+closePopup(previewImageModal);
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
