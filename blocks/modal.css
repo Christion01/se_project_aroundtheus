@@ -95,6 +95,10 @@
   border-bottom: 1px solid #000000;
 }
 
+.modal__input:invalid {
+  border-bottom: 1px solid rgba(255, 0, 0, 1);
+}
+
 .modal__button {
   height: 50.15px;
   border-radius: 2px;
@@ -106,6 +110,35 @@
 
 .modal__button:hover {
   opacity: 0.6;
+}
+
+.modal__button_disabled {
+  width: 358px;
+  height: 50.15px;
+  top: 187px;
+  left: 107px;
+  border-radius: 2px;
+  opacity: 0.2;
+  border: 1px solid #000;
+  background: transparent;
+  color: #000;
+}
+
+.modal__error {
+}
+
+.modal_error_visible {
+  opacity: 100%;
+  color: red;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-top: 0px;
+  margin-top: -25px;
+  margin-bottom: 13px;
 }
 
 @media screen and (max-width: 580px) {
