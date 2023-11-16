@@ -53,31 +53,17 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const modal = document.querySelector(".modal_opened");
 
 const cardTitleInput = cardAddForm.querySelector("#new-place-input");
 const cardUrlInput = cardAddForm.querySelector("#card-image-url-input");
+
 //FUNCTIONS
 
 function handleEscape(evt) {
   if (evt.key === "Escape") {
-    closePopup(profileEditModal);
-    closePopup(cardAddModal);
-    closePopup(previewImageModal);
+    const openedPopup = document.querySelector(".modal_opened");
+    closePopup(openedPopup);
   }
-}
-/*
-($"body").click(function () {
-  if (!$(this.target).is("open__modal")) {
-    closePopup(profileEditModal);
-    closePopup(cardAddModal);
-    closePopup(previewImageModal);
-  }
-}); */
-
-function handleOverlay(evt) {
-  let overlay = !modal;
-  overlay.addEventListener("click", () => closePopup(modal));
 }
 
 function openPopup(popup) {
@@ -89,10 +75,6 @@ function closePopup(popup) {
   popup.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscape);
 }
-
-closePopup(profileEditModal);
-closePopup(cardAddModal);
-closePopup(previewImageModal);
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -177,15 +159,10 @@ addNewCardBtn.addEventListener("click", () => {
 //PREVIEW IMAGE MODAL
 
 const editModalCloseBtn = document.querySelector("#edit-modal-close-btn");
-editModalCloseBtn.addEventListener("click", () => closePopup(profileEditModal));
 
 const addModalCloseBtn = document.querySelector("#add-modal-close-btn");
-addModalCloseBtn.addEventListener("click", () => closePopup(cardAddModal));
 
 const previewModalCloseBtn = document.querySelector("#preview-close-btn");
-previewModalCloseBtn.addEventListener("click", () =>
-  closePopup(previewImageModal)
-);
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 cardAddForm.addEventListener("submit", handleAddCardSubmit);

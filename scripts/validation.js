@@ -1,5 +1,3 @@
-// enabling validation by calling enableValidation()
-// pass all the settings on call
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -39,12 +37,14 @@ function hasInvalidInput(inputList) {
 
 function disableButton(inputEls, submitButton, inactiveButtonClass) {
   submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
 }
 
 //enable button
 
 function enableButton(inputEls, submitButton, inactiveButtonClass) {
   submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
 }
 
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
@@ -56,9 +56,9 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
 }
 
 function setEventListeners(formEl, options) {
-  const { inputSelector } = options;
-  const inputEls = [...formEl.querySelectorAll(options.inputSelector)];
-  const submitButton = formEl.querySelector(options.submitButtonSelector);
+  const { inputSelector, submitButtonSelector } = options;
+  const inputEls = [...formEl.querySelectorAll(inputSelector)];
+  const submitButton = formEl.querySelector(submitButtonSelector);
   toggleButtonState(inputEls, submitButton, options);
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (evt) => {
