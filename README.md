@@ -1,9 +1,15 @@
-Project 3: Around The U.S.
+Around The U.S.
 
 Overview:
 
-Explorores account page featuring 9 pictures with captions and a profile completed with a profile picture, account name and description, edit and add buttons.
+Explorores account page featuring pictures with captions and a profile completed with a profile picture, account name and description, functional edit and add buttons.
+I used HTML, CSS, and JavaScript for all of the code.
 
-Link to my GitHub Page:
+Functionallity:
 
-https://christion01.github.io/se_project_aroundtheus/
+The user is able to add, delete, and edit all cards and the user profile.
+Submittion buttons and forms are completed with behavior that responds to validation.
+
+Link to my project GitHub Page:
+
+[Around The US](https://github.com/Christion01/se_project_aroundtheus)
