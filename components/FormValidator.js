@@ -7,6 +7,19 @@ export default class FormValidator {
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
   }
+  showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+    const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
+    inputEl.classList.add(inputErrorClass);
+    errorMessageEl.textContent = inputEl.validationMessage;
+    errorMessageEl.classList.add(errorClass);
+  }
+
+  hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+    const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
+    inputEl.classList.remove(inputErrorClass);
+    errorMessageEl.textContent = "";
+    errorMessageEl.classList.remove(errorClass);
+  }
 }
 
 const config = {
@@ -18,20 +31,6 @@ const config = {
   errorClass: "modal_error_visible",
 };
 enableValidation(config);
-
-function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-  const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.add(inputErrorClass);
-  errorMessageEl.textContent = inputEl.validationMessage;
-  errorMessageEl.classList.add(errorClass);
-}
-
-function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-  const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.remove(inputErrorClass);
-  errorMessageEl.textContent = "";
-  errorMessageEl.classList.remove(errorClass);
-}
 
 function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
@@ -90,3 +89,9 @@ function enableValidation(options) {
     setEventListeners(formEl, options);
   });
 }
+
+const addCardFormValidator = FormValidator(addCardForm);
+addCardFormValidator.enableValidation();
+
+const editProfileFormValidator = FormValidator(profileForm);
+editProfileFormValidator.enableValidation();

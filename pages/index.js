@@ -28,14 +28,6 @@ const initialCards = [
   },
 ];
 
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
-const card = new Card(cardData, "#card-template");
-card.getView();
-
 // ELEMENTS
 
 const profileEditBtn = document.querySelector("#profile-edit-btn");
@@ -84,43 +76,44 @@ function closePopup(popup) {
   document.removeEventListener("keydown", handleEscape);
 }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-
-  const cardImageEL = cardElement.querySelector(".card__image");
-  const cardTitleEL = cardElement.querySelector(".card__title");
-  //const likeButton = cardElement.querySelector(".card__like-button");
-
-  //delete button
-  //const deleteButton = cardElement.querySelector(".card__delete-button");
-
-  //deleteButton.addEventListener("click", () => {
-  //  cardElement.remove();
-  //});
-
-  //cardImageEL evnetListener
-
-  cardImageEL.addEventListener("click", () => {
-    previewImage.src = cardImageEL.src;
-    previewName.textContent = cardData.name;
-    previewImage.alt = cardData.name;
-    openPopup(previewImageModal);
-  });
-
-  //like button
-  //likeButton.addEventListener("click", () => {
-  // likeButton.classList.toggle("card__like-button_active");
-  //});
-
-  //adding initial cards
-  cardTitleEL.textContent = cardData.name;
-  cardImageEL.src = cardData.link;
-  cardImageEL.alt = cardData.name;
-  return cardElement;
+function createCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  return card.getView();
 }
 
+const cardImageEL = cardElement.querySelector(".card__image");
+const cardTitleEL = cardElement.querySelector(".card__title");
+//const likeButton = cardElement.querySelector(".card__like-button");
+
+//delete button
+//const deleteButton = cardElement.querySelector(".card__delete-button");
+
+//deleteButton.addEventListener("click", () => {
+//  cardElement.remove();
+//});
+
+//cardImageEL evnetListener
+
+cardImageEL.addEventListener("click", () => {
+  previewImage.src = cardImageEL.src;
+  previewName.textContent = cardData.name;
+  previewImage.alt = cardData.name;
+  openPopup(previewImageModal);
+});
+
+//like button
+//likeButton.addEventListener("click", () => {
+// likeButton.classList.toggle("card__like-button_active");
+//});
+
+//adding initial cards
+cardTitleEL.textContent = cardData.name;
+cardImageEL.src = cardData.link;
+cardImageEL.alt = cardData.name;
+return cardElement;
+
 function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
+  const cardElement = createCard(cardData);
   cardsListEL.prepend(cardElement);
 }
 
