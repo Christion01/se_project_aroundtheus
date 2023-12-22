@@ -1,3 +1,14 @@
+export default class FormValidator {
+  constructor(config, formSelector) {
+    this._formSelector = formSelector;
+    this._inputSelector = config.inputSelector;
+    this._submitButtonSelector = config.submitButtonSelector;
+    this._inactiveButtonClass = config.inactiveButtonClass;
+    this._inputErrorClass = config.inputErrorClass;
+    this._errorClass = config.errorClass;
+  }
+}
+
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",

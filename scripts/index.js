@@ -1,5 +1,5 @@
-/* const(cannot change, constant) */
-/* let() */
+import _validation from "../components/FormValidator.js";
+import Card from "../components/Card.js";
 
 const initialCards = [
   {
@@ -27,6 +27,14 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
+const card = new Card(cardData, "#card-template");
+card.getView();
 
 // ELEMENTS
 
@@ -81,14 +89,14 @@ function getCardElement(cardData) {
 
   const cardImageEL = cardElement.querySelector(".card__image");
   const cardTitleEL = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
+  //const likeButton = cardElement.querySelector(".card__like-button");
 
   //delete button
-  const deleteButton = cardElement.querySelector(".card__delete-button");
+  //const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  //deleteButton.addEventListener("click", () => {
+  //  cardElement.remove();
+  //});
 
   //cardImageEL evnetListener
 
@@ -100,9 +108,9 @@ function getCardElement(cardData) {
   });
 
   //like button
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
+  //likeButton.addEventListener("click", () => {
+  // likeButton.classList.toggle("card__like-button_active");
+  //});
 
   //adding initial cards
   cardTitleEL.textContent = cardData.name;
