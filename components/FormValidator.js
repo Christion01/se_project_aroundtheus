@@ -1,24 +1,36 @@
 export default class FormValidator {
-  constructor(config, formSelector) {
-    this._formSelector = formSelector;
+  constructor(config, formEl) {
+    this._formEl = formEl;
     this._inputSelector = config.inputSelector;
     this._submitButtonSelector = config.submitButtonSelector;
     this._inactiveButtonClass = config.inactiveButtonClass;
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
-  }
-  showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-    const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
-    inputEl.classList.add(inputErrorClass);
-    errorMessageEl.textContent = inputEl.validationMessage;
-    errorMessageEl.classList.add(errorClass);
-  }
+    // }
+    // showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+    //   const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
+    //   inputEl.classList.add(inputErrorClass);
+    //   errorMessageEl.textContent = inputEl.validationMessage;
+    //   errorMessageEl.classList.add(errorClass);
+    // }
 
-  hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-    const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
-    inputEl.classList.remove(inputErrorClass);
-    errorMessageEl.textContent = "";
-    errorMessageEl.classList.remove(errorClass);
+    // hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+    //   const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
+    //   inputEl.classList.remove(inputErrorClass);
+    //   errorMessageEl.textContent = "";
+    //   errorMessageEl.classList.remove(errorClass);
+    // }
+    const cardFormValidator = new FormValidator(validationConfig, cardForm);
+    cardFormValidator.enableValidation();
+
+    const profileFormValidator = new FormValidator(
+      validationConfig,
+      profileForm
+    );
+    profileFormValidator.enableValidation();
+
+    // after submitting the card form disable the submit button, so the user won't be able to submit an empty form
+    cardFormValidator.toggleButtonState();
   }
 }
 

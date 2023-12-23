@@ -1,4 +1,4 @@
-import _validation from "../components/FormValidator.js";
+import _FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 
 const initialCards = [
@@ -92,26 +92,6 @@ const cardTitleEL = cardElement.querySelector(".card__title");
 //  cardElement.remove();
 //});
 
-//cardImageEL evnetListener
-
-cardImageEL.addEventListener("click", () => {
-  previewImage.src = cardImageEL.src;
-  previewName.textContent = cardData.name;
-  previewImage.alt = cardData.name;
-  openPopup(previewImageModal);
-});
-
-//like button
-//likeButton.addEventListener("click", () => {
-// likeButton.classList.toggle("card__like-button_active");
-//});
-
-//adding initial cards
-cardTitleEL.textContent = cardData.name;
-cardImageEL.src = cardData.link;
-cardImageEL.alt = cardData.name;
-return cardElement;
-
 function renderCard(cardData) {
   const cardElement = createCard(cardData);
   cardsListEL.prepend(cardElement);
@@ -169,3 +149,9 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 cardAddForm.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsListEL));
+
+const addCardFormValidator = FormValidator(addCardForm);
+addCardFormValidator.enableValidation();
+
+const editProfileFormValidator = FormValidator(profileForm);
+editProfileFormValidator.enableValidation();
