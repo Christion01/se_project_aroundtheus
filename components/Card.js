@@ -8,22 +8,20 @@ export default class Card {
 
   _setEventListeners() {
     // card__like-button
-    this._cardElement.this._likeButton.addEventListener("click", () => {
+    this._likeButton.addEventListener("click", () => {
       this._handleLikeBtn();
     });
     // card__delete-button
-    this._cardElement.this._deleteButton.addEventListener("click", () => {
+    this._deleteButton.addEventListener("click", () => {
       this._handleDeleteCard();
     });
-    this._cardElement.this._cardImageEl.addEventListener("click", () => {
+    this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick(this);
     });
   }
 
   _handleLikeBtn() {
-    this._cardElement.this._likeButton.classList.toggle(
-      "card__like-button_active"
-    );
+    this._likeButton.classList.toggle("card__like-button_active");
   }
 
   _handleDeleteCard() {
@@ -51,10 +49,9 @@ export default class Card {
   }
 
   _getElement() {
-    this._cardElement = document
+    return document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-    return;
   }
 }

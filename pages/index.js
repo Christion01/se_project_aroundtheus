@@ -1,4 +1,4 @@
-import _FormValidator from "../components/FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 
 const initialCards = [
@@ -150,8 +150,11 @@ cardAddForm.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsListEL));
 
-const addCardFormValidator = FormValidator(addCardForm);
-addCardFormValidator.enableValidation();
+const cardFormValidator = new FormValidator(validationConfig, cardForm);
+cardFormValidator.enableValidation();
 
-const editProfileFormValidator = FormValidator(profileForm);
-editProfileFormValidator.enableValidation();
+const profileFormValidator = new FormValidator(validationConfig, profileForm);
+profileFormValidator.enableValidation();
+
+// after submitting the card form disable the submit button, so the user won't be able to submit an empty form
+cardFormValidator.toggleButtonState();

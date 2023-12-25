@@ -6,31 +6,34 @@ export default class FormValidator {
     this._inactiveButtonClass = config.inactiveButtonClass;
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
-    // }
-    // showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-    //   const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
-    //   inputEl.classList.add(inputErrorClass);
-    //   errorMessageEl.textContent = inputEl.validationMessage;
-    //   errorMessageEl.classList.add(errorClass);
-    // }
+  }
+  showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+    const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
+    inputEl.classList.add(inputErrorClass);
+    errorMessageEl.textContent = inputEl.validationMessage;
+    errorMessageEl.classList.add(errorClass);
+  }
 
-    // hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-    //   const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
-    //   inputEl.classList.remove(inputErrorClass);
-    //   errorMessageEl.textContent = "";
-    //   errorMessageEl.classList.remove(errorClass);
-    // }
-    const cardFormValidator = new FormValidator(validationConfig, cardForm);
-    cardFormValidator.enableValidation();
+  hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+    const errorMessageEl = document.querySelector(`#${inputEl.id}-error`);
+    inputEl.classList.remove(inputErrorClass);
+    errorMessageEl.textContent = "";
+    errorMessageEl.classList.remove(errorClass);
+  }
 
-    const profileFormValidator = new FormValidator(
-      validationConfig,
-      profileForm
-    );
-    profileFormValidator.enableValidation();
+  checkInputValidity(formEl, inputEl, options) {
+    if (!inputEl.validity.valid) {
+      return showInputError(formEl, inputEl, options);
+    }
+    hideInputError(formEl, inputEl, options);
+  }
 
-    // after submitting the card form disable the submit button, so the user won't be able to submit an empty form
-    cardFormValidator.toggleButtonState();
+  toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
+    if (hasInvalidInput(inputEls)) {
+      disableButton(inputEls, submitButton, inactiveButtonClass);
+      return;
+    }
+    enableButton(inputEls, submitButton, inactiveButtonClass);
   }
 }
 
@@ -43,13 +46,6 @@ const config = {
   errorClass: "modal_error_visible",
 };
 enableValidation(config);
-
-function checkInputValidity(formEl, inputEl, options) {
-  if (!inputEl.validity.valid) {
-    return showInputError(formEl, inputEl, options);
-  }
-  hideInputError(formEl, inputEl, options);
-}
 
 function hasInvalidInput(inputList) {
   return !inputList.every((inputEl) => inputEl.validity.valid);
@@ -67,14 +63,6 @@ function disableButton(inputEls, submitButton, inactiveButtonClass) {
 function enableButton(inputEls, submitButton, inactiveButtonClass) {
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
-}
-
-function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
-  if (hasInvalidInput(inputEls)) {
-    disableButton(inputEls, submitButton, inactiveButtonClass);
-    return;
-  }
-  enableButton(inputEls, submitButton, inactiveButtonClass);
 }
 
 function setEventListeners(formEl, options) {
@@ -101,9 +89,3 @@ function enableValidation(options) {
     setEventListeners(formEl, options);
   });
 }
-
-const addCardFormValidator = FormValidator(addCardForm);
-addCardFormValidator.enableValidation();
-
-const editProfileFormValidator = FormValidator(profileForm);
-editProfileFormValidator.enableValidation();
