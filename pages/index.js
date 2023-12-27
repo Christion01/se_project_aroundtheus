@@ -59,6 +59,13 @@ const cardUrlInput = cardAddForm.querySelector("#card-image-url-input");
 
 //FUNCTIONS
 
+function handleImageClick() {
+  this._cardImageEl.src = this._link;
+  this._cardImageEl.alt = `Image${this._name}`;
+  this._cardTitleEl.textContent = this._name;
+  openPopup(previewImageModal);
+}
+
 function handleEscape(evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".modal_opened");
@@ -81,8 +88,8 @@ function createCard(cardData) {
   return card.getView();
 }
 
-const cardImageEL = cardElement.querySelector(".card__image");
-const cardTitleEL = cardElement.querySelector(".card__title");
+// const cardImageEL = cardElement.querySelector(".card__image");
+// const cardTitleEL = cardElement.querySelector(".card__title");
 //const likeButton = cardElement.querySelector(".card__like-button");
 
 //delete button
@@ -112,6 +119,7 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardsListEL);
   e.target.reset();
   closePopup(cardAddModal);
+  cardFormValidator.resetValidation();
 }
 
 //closing modal by overlay
@@ -132,6 +140,7 @@ profileEditBtn.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   openPopup(profileEditModal);
+  profileFormValidator.resetValidation();
 });
 //ADD NEW CARD BUTTON
 addNewCardBtn.addEventListener("click", () => {
@@ -150,11 +159,20 @@ cardAddForm.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsListEL));
 
-const cardFormValidator = new FormValidator(validationConfig, cardForm);
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal_error_visible",
+};
+
+const cardFormValidator = new FormValidator(config, cardAddForm);
 cardFormValidator.enableValidation();
 
-const profileFormValidator = new FormValidator(validationConfig, profileForm);
+const profileFormValidator = new FormValidator(config, profileEditForm);
 profileFormValidator.enableValidation();
 
 // after submitting the card form disable the submit button, so the user won't be able to submit an empty form
-cardFormValidator.toggleButtonState();
+cardFormValidator._toggleButtonState();
