@@ -30,7 +30,10 @@ export default class Card {
   }
 
   getView() {
-    this._cardElement = this._getElement();
+    this._cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
     //get the card view,
     this._likeButton = this._cardElement.querySelector(".card__like-button");
     this._cardImageEl = this._cardElement.querySelector(".card__image");
@@ -46,12 +49,5 @@ export default class Card {
     this._setEventListeners(); //(this.cardElement);
     //return the card
     return this._cardElement;
-  }
-
-  _getElement() {
-    return document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
   }
 }
