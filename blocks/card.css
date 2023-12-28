@@ -25,6 +25,7 @@
   font-weight: 900;
   line-height: 29.05px;
   width: calc(100% - 3vw);
+  color: #000;
 }
 
 .card__like-button {
@@ -49,7 +50,7 @@
   width: 18px;
   height: 19.3px;
   border: none;
-  bottom: 300px;
+  bottom: 290px;
   z-index: 5;
   background-repeat: no-repeat;
   cursor: pointer;

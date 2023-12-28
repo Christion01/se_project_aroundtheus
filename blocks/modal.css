@@ -104,20 +104,18 @@
   cursor: pointer;
 }
 
-.modal__button:hover {
-  opacity: 0.6;
-}
-
 .modal__button_disabled {
-  width: 358px;
-  height: 50.15px;
-  top: 187px;
   left: 107px;
   border-radius: 2px;
   opacity: 0.2;
   border: 1px solid #000;
   background: transparent;
   color: #000;
+  cursor: default;
+}
+
+.modal__button:hover:not(:disabled) {
+  opacity: 0.6;
 }
 
 .modal_error_visible {

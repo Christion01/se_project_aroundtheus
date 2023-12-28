@@ -144,6 +144,7 @@ profileEditBtn.addEventListener("click", () => {
 //ADD NEW CARD BUTTON
 addNewCardBtn.addEventListener("click", () => {
   openPopup(cardAddModal);
+  cardFormValidator.resetValidation();
 });
 //PREVIEW IMAGE MODAL
 
@@ -174,4 +175,3 @@ const profileFormValidator = new FormValidator(config, profileEditForm);
 profileFormValidator.enableValidation();
 
 // after submitting the card form disable the submit button, so the user won't be able to submit an empty form
-cardFormValidator._toggleButtonState();

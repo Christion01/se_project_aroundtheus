@@ -1,7 +1,7 @@
 export default class Card {
   constructor({ name, link }, cardSelector, handleImageClick) {
-    this._name = name;
-    this._link = link;
+    this.name = name;
+    this.link = link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
   }
@@ -35,15 +35,16 @@ export default class Card {
       .content.querySelector(".card")
       .cloneNode(true);
     //get the card view,
+
+    this._cardTitleEl = this._cardElement.querySelector(".card__title");
     this._likeButton = this._cardElement.querySelector(".card__like-button");
     this._cardImageEl = this._cardElement.querySelector(".card__image");
     this._deleteButton = this._cardElement.querySelector(
       ".card__delete-button"
     );
-    this._cardTitleEl = this._cardElement.querySelector(".card__description");
-    this._cardImageEl.src = this._link;
-    this._cardImageEl.alt = this._name;
-    this._cardTitleEl.textContent = this._name;
+    this._cardTitleEl.textContent = this.name;
+    this._cardImageEl.src = this.link;
+    this._cardImageEl.alt = this.name;
 
     //set event listeners,
     this._setEventListeners(); //(this.cardElement);
