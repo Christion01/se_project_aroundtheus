@@ -29,7 +29,6 @@ const initialCards = [
 ];
 
 // ELEMENTS
-
 const profileEditBtn = document.querySelector("#profile-edit-btn");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileTitle = document.querySelector(".profile__title");
@@ -60,9 +59,9 @@ const cardUrlInput = cardAddForm.querySelector("#card-image-url-input");
 //FUNCTIONS
 
 function handleImageClick() {
-  this._cardImageEl.src = this._link;
-  this._cardImageEl.alt = `Image${this._name}`;
-  this._cardTitleEl.textContent = this._name;
+  previewImage.src = this._link;
+  previewImage.alt = `Image${this._name}`;
+  previewName.textContent = this._name;
   openPopup(previewImageModal);
 }
 
