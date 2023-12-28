@@ -59,9 +59,9 @@ const cardUrlInput = cardAddForm.querySelector("#card-image-url-input");
 //FUNCTIONS
 
 function handleImageClick() {
-  previewImage.src = this._link;
-  previewImage.alt = `Image${this._name}`;
-  previewName.textContent = this._name;
+  previewImage.src = this.link;
+  previewImage.alt = `Image${this.name}`;
+  previewName.textContent = this.name;
   openPopup(previewImageModal);
 }
 
