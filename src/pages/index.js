@@ -70,11 +70,9 @@ function handleProfileEditSubmit(userData) {
 //Event Listeners
 
 profileEditBtn.addEventListener("click", () => {
-  const userInfo = userInfo.getUserInfo();
+  const userData = userInfo.getUserInfo();
   profileFormValidator.resetValidation();
-  profileEditPopup.setInputValues(userInfo);
-  // profileTitleInput.value = newUserInfo.name;
-  // profileDescriptionInput.value = newUserInfo.description;
+  profileEditPopup.setInputValues(userData);
   profileEditPopup.open();
 });
 
