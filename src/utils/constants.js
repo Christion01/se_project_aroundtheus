@@ -30,11 +30,11 @@ export const profileEditBtn = document.querySelector("#profile-edit-btn");
 export const profileEditModal = document.querySelector("#profile-edit-modal");
 export const profileEditForm =
   profileEditModal.querySelector("#edit-profile-form");
-export const cardAddForm = cardAddModal.querySelector("#add-card-form");
 
 //Add Card
 export const addNewCardBtn = document.querySelector("#profile-add-button");
 export const cardAddModal = document.querySelector("#profile-add-modal");
+export const cardAddForm = cardAddModal.querySelector("#add-card-form");
 
 //Preview
 export const previewImageModal = document.querySelector("#preview-image-modal");
