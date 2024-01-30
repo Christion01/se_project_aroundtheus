@@ -1,9 +1,9 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import "../pages/index.css";
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from "./PopupWithImage.js";
-import Section from "../Section.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import Section from "../components/Section.js";
 import UserInfo from "../UserInfo.js";
 import {
   initialCards,
@@ -24,8 +24,8 @@ const newCardPopup = new PopupWithForm(
 );
 newCardPopup.setEventListeners();
 
-const ImagePopup = new PopupWithImage("#preview-image-modal");
-ImagePopup.setEventListeners();
+const imagePopup = new PopupWithImage("#preview-image-modal");
+imagePopup.setEventListeners();
 
 const profileEditPopup = new PopupWithForm(
   "#profile-edit-modal",
@@ -38,7 +38,7 @@ profileEditPopup.setEventListeners();
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 function handleImageClick(card) {
-  ImagePopup.open(card);
+  imagePopup.open(card);
 }
 
 //Cards
@@ -70,11 +70,11 @@ function handleProfileEditSubmit(userData) {
 //Event Listeners
 
 profileEditBtn.addEventListener("click", () => {
-  const newUserInfo = userInfo.getUserInfo();
+  const userInfo = userInfo.getUserInfo();
   profileFormValidator.resetValidation();
-  profileEditPopup.setInputValues(newUserInfo);
-  profileTitleInput.value = newUserInfo.name;
-  profileDescriptionInput.value = newUserInfo.description;
+  profileEditPopup.setInputValues(userInfo);
+  // profileTitleInput.value = newUserInfo.name;
+  // profileDescriptionInput.value = newUserInfo.description;
   profileEditPopup.open();
 });
 
